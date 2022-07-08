@@ -1,0 +1,57 @@
+.main {
+  @apply px-20 pt-24 flex justify-between;
+  .left {
+    @apply w-2/5 flex flex-col mr-4;
+    .title {
+      @apply text-2xl mb-2;
+    }
+    .descriptionList {
+      @apply marker:text-red-800 list-disc pl-5 space-y-3 text-base mb-6;
+    }
+    .inputContainer {
+      @apply w-3/4 flex flex-col;
+      .control {
+        @apply flex flex-col mb-4;
+      }
+      .input {
+        @apply text-gray-700 bg-gray_f4 px-3 py-5  mb-6;
+      }
+      .error {
+        @apply text-red-600 mb-2;
+      }
+    }
+  }
+  .timerContainer {
+    min-width: 733px;
+    .timerTop {
+      @apply py-5 bg-gray_c4 flex justify-between items-center text-white px-10;
+    }
+    .timerBottom {
+      @apply bg-gray_f4 pt-16 px-44 py-28;
+      .time {
+        @apply flex items-center;
+        .timeNumber {
+          font-weight: normal;
+          font-size: 150px;
+          line-height: 179px;
+          @apply mr-6;
+        }
+      }
+      .taskNameContainer {
+        @apply text-center mb-8;
+        .taskNumber {
+          @apply text-gray-400;
+        }
+      }
+      .control {
+        @apply flex items-center justify-center;
+        .btnStart {
+          @apply btn-primary transition-colors mr-6;
+        }
+      }
+      .btnStop {
+        @apply btn-hollow transition-colors;
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, SF UI Display, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* fonts */
+@font-face {
+  font-family: "SF UI Display";
+  src: url("./fonts/sfuidisplay_normal-webfont.woff2") format("woff2"),
+    url("./fonts/sfuidisplay_normal-webfont.woff") format("woff");
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}

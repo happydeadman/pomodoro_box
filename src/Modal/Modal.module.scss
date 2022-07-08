@@ -1,0 +1,23 @@
+.modal {
+  @apply justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0  outline-none focus:outline-none z-30;
+  .modalContent {
+    @apply relative items-center  my-6 mx-auto max-w-3xl z-50 bg-white p-3 w-96 flex justify-center flex-col;
+
+    .modalHeader {
+      @apply flex justify-center;
+
+      .modalTitle {
+        @apply text-2xl mb-6;
+      }
+    }
+    .close {
+      @apply absolute right-0 top-0 pr-3 pt-2;
+    }
+    .deleteBtn {
+      @apply py-4 px-12 text-white bg-custom_red mb-3;
+    }
+    .abortBtn {
+      @apply underline;
+    }
+  }
+}

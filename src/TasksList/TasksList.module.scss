@@ -1,0 +1,51 @@
+.list {
+  @apply flex flex-col mb-4;
+  .item {
+    @apply flex justify-between items-center pl-2 py-4 border-b;
+    .number {
+      @apply relative mr-4;
+    }
+    .number::before {
+      @apply absolute w-6 h-6 border border-gray_c4 rounded-full content-[''] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+    }
+    .menu {
+      @apply flex relative items-center rounded-full w-9 h-9 justify-center;
+    }
+    .menuList {
+      @apply bg-white z-10 py-1;
+      .menuItem {
+        @apply px-4  py-2 text-gray-500 hover:bg-gray_f4 transition-colors;
+      }
+      .menuBtn {
+        @apply flex items-center disabled:cursor-not-allowed;
+      }
+      .menuBtn svg {
+        fill: #a8b64f;
+        @apply mr-2;
+      }
+      .menuBtn:disabled svg {
+        @apply fill-gray_c4;
+      }
+    }
+  }
+
+  .item:first-child {
+    @apply border-t;
+  }
+}
+.time {
+  color: #999;
+}
+
+.editMenu {
+  @apply border p-4 justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0  outline-none focus:outline-none z-30;
+  .editMenuContainer {
+    @apply border p-4 z-50 bg-white flex flex-col items-center;
+    .input {
+      @apply text-gray-700 bg-gray_f4 p-3 mb-4 w-72;
+    }
+    .editMenuBtn {
+      @apply btn-primary transition-colors mb-3;
+    }
+  }
+}

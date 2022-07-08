@@ -1,0 +1,31 @@
+.header {
+  @apply justify-between z-10 flex px-20 py-4 items-center before:content-[''] before:absolute before:w-screen  before:block before:h-16 before:top-1 before:left-0;
+
+  .logoContainer {
+    @apply flex items-center;
+
+    .logo {
+      @apply flex items-center;
+    }
+    .logoText {
+      @apply text-2xl text-custom_red  pl-3;
+    }
+  }
+  .link {
+    @apply flex text-base transition-colors text-custom_red items-center hover:text-red-700;
+
+    svg {
+      @apply fill-custom_red transition-colors;
+    }
+    .statText {
+      @apply pl-1;
+    }
+  }
+  .link:hover svg {
+    @apply fill-red-700;
+  }
+}
+.header::before {
+  pointer-events: none;
+  box-shadow: 0 24px 48px rgb(0 0 0 / 10%);
+}

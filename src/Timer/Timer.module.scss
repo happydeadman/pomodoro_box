@@ -1,0 +1,39 @@
+.timerContainer {
+  min-width: 733px;
+  .timerTop {
+    @apply py-5 bg-gray_c4 flex justify-between items-center text-white px-10;
+  }
+  .isWorking {
+    @apply bg-custom_red;
+  }
+  .break {
+    @apply bg-custom_green;
+  }
+  .timerBottom {
+    @apply bg-gray_f4 pt-16 justify-center flex flex-col py-28;
+    .time {
+      @apply flex items-center justify-center;
+      .timeNumber {
+        font-weight: normal;
+        font-size: 150px;
+        line-height: 179px;
+        @apply mr-6;
+      }
+    }
+    .taskNameContainer {
+      @apply text-center mb-8;
+      .taskNumber {
+        @apply text-gray-400;
+      }
+    }
+    .control {
+      @apply flex items-center justify-center;
+      > button:first-child {
+        margin-right: 25px;
+      }
+    }
+    .emptyTasks {
+      @apply justify-center text-5xl h-72 items-center flex;
+    }
+  }
+}

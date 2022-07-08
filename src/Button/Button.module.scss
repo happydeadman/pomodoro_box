@@ -1,0 +1,15 @@
+.primary {
+  @apply btn-primary transition-colors;
+}
+.danger {
+  @apply btn-danger transition-colors;
+}
+.hollow {
+  @apply btn-hollow transition-colors;
+}
+.big {
+  @apply w-44;
+}
+.disabled {
+  @apply btn-hollow hover:border-gray_c4 hover:bg-transparent hover:text-gray_c4 cursor-not-allowed;
+}
