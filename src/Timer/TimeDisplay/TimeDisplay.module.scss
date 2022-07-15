@@ -1,0 +1,9 @@
+.time {
+  @apply flex items-center justify-center;
+  .timeNumber {
+    font-weight: normal;
+    font-size: 150px;
+    line-height: 179px;
+    @apply mr-6;
+  }
+}

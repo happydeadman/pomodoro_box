@@ -11,15 +11,6 @@
   }
   .timerBottom {
     @apply bg-gray_f4 pt-16 justify-center flex flex-col py-28;
-    .time {
-      @apply flex items-center justify-center;
-      .timeNumber {
-        font-weight: normal;
-        font-size: 150px;
-        line-height: 179px;
-        @apply mr-6;
-      }
-    }
     .taskNameContainer {
       @apply text-center mb-8;
       .taskNumber {

@@ -10,6 +10,7 @@ import {
   MinusIcon,
   EditIcon,
   DeleteIcon,
+  PomodoroIcon,
 } from "../Icons";
 import { ReactNode } from "react";
 
@@ -24,6 +25,7 @@ export enum EIcons {
   minus = "MinusIcon",
   edit = "EditIcon",
   del = "DeleteIcon",
+  pomodoro = "PomodoroIcon",
 }
 
 interface IIconsProps {
@@ -49,6 +51,8 @@ function setIconComponent(name: EIcons): ReactNode {
       return <EditIcon />;
     case EIcons.del:
       return <DeleteIcon />;
+    case EIcons.pomodoro:
+      return <PomodoroIcon />;
   }
 }
 

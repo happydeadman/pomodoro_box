@@ -38,7 +38,9 @@ export function TasksList({ tasks }: ITasksListProps) {
       let mins: number = 0;
       if (tasks) {
         tasks.forEach((task) => {
-          mins += task.time * task.pomodoro;
+          task.pomodoro.forEach((item) => {
+            mins += item.time;
+          });
         });
 
         let hours = Math.trunc(mins / 60);
@@ -59,6 +61,13 @@ export function TasksList({ tasks }: ITasksListProps) {
               <span className={styles.number}>{index + 1}</span>
               {task.name}
             </span>
+            <span className={styles.pomodoroList}>
+              {task.pomodoro.map((pomodoro, index) => (
+                <span className={styles.pomodoro} key={pomodoro.id}>
+                  {<Icons name={EIcons.pomodoro} />}
+                </span>
+              ))}
+            </span>
             <Dropdown
               button={
                 <button className={styles.menu}>
@@ -77,7 +86,7 @@ export function TasksList({ tasks }: ITasksListProps) {
                 </li>
                 <li className={styles.menuItem}>
                   <button
-                    disabled={task.pomodoro <= 1}
+                    disabled={task.pomodoro.length <= 1}
                     onClick={() => decreasePomodoroTask({ id: task.id })}
                     className={styles.menuBtn}
                   >

@@ -6,3 +6,4 @@ export * from "./PlusIcon";
 export * from "./MinusIcon";
 export * from "./EditIcon";
 export * from "./DeleteIcon";
+export * from "./PomodoroIcon";

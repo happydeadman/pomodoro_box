@@ -10,9 +10,15 @@ import styles from "./Main.module.scss";
 export type ITasks = {
   name: string;
   id: string;
-  time: number;
+  // time: number;
   date: string;
-  pomodoro: number;
+  pomodoro: TPomodoro[];
+};
+
+type TPomodoro = {
+  id: string;
+  timeSpend: number;
+  time: number;
 };
 
 export function Main() {
@@ -40,9 +46,8 @@ export function Main() {
     addTask({
       id: generateRandomString(),
       name: value.trim(),
-      time: 25,
       date: date.toUTCString(),
-      pomodoro: 1,
+      pomodoro: [{ time: 25, timeSpend: 0, id: generateRandomString() }],
     });
     setValue("");
     setInputError("Название дела не может быть пустым!");

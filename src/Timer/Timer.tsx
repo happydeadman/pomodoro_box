@@ -1,23 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "../Button";
-import { EIcons, Icons } from "../Icons/Icons";
 import styles from "./Timer.module.scss";
 import { useTypedSelector } from "../Hooks/useTypedSelector";
 import classNames from "classnames";
-import { getPadTime } from "../Hooks/js/getPadTime";
+import { TimeDisplay } from "./TimeDisplay";
 
 export function Timer() {
   const { tasks } = useTypedSelector((state) => state);
 
-  const [timeLeft, setTimeLeft] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isBreak, setIsBreak] = useState(false);
   const [isWork, setIsWork] = useState(true);
   const [isRunning, setIsRunning] = useState(false);
-
-  const minutes = Math.floor(timeLeft / 60);
-  const seconds = getPadTime(Math.floor(timeLeft - minutes * 60));
-
   const currentTask = tasks?.[0];
 
   const handleClick = () => {
@@ -33,20 +27,6 @@ export function Timer() {
     setIsPaused(true);
     setIsRunning(false);
   };
-
-  useEffect(() => {
-    setTimeLeft(currentTask?.time * 60);
-  }, [currentTask]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      isRunning &&
-        setTimeLeft((timeLeft) => (timeLeft >= 1 ? timeLeft - 1 : 0));
-    }, 1000);
-    return () => {
-      clearInterval(interval);
-    };
-  }, [isRunning]);
 
   const classesTable = classNames(
     styles[`timerTop`],
@@ -75,18 +55,15 @@ export function Timer() {
           <div className={styles.emptyTasks}>Активных задач нет</div>
         ) : (
           <div>
-            <div className={styles.time}>
-              <span className={styles.timeNumber}>
-                {minutes}:{seconds}
-              </span>
-
-              <button>
-                <Icons name={EIcons.add} />
-              </button>
-            </div>
+            <TimeDisplay
+              time={currentTask?.pomodoro[0].time}
+              isRunning={isRunning}
+              currentTask={currentTask}
+              pomodoroId={currentTask?.pomodoro[0].id}
+            />
             <div className={styles.taskNameContainer}>
               <span className={styles.taskNumber}>Задача 1 - </span>
-              <span className={styles.taskName}>Сверстать сайт</span>
+              <span className={styles.taskName}>{currentTask.name}</span>
             </div>
             {isRunning && !isPaused && isWork && (
               <div className={styles.control}>
