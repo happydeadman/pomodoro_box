@@ -55,12 +55,7 @@ export function Timer() {
           <div className={styles.emptyTasks}>Активных задач нет</div>
         ) : (
           <div>
-            <TimeDisplay
-              time={currentTask?.pomodoro[0].time}
-              isRunning={isRunning}
-              currentTask={currentTask}
-              pomodoroId={currentTask?.pomodoro[0].id}
-            />
+            <TimeDisplay isRunning={isRunning} isWork={isWork} />
             <div className={styles.taskNameContainer}>
               <span className={styles.taskNumber}>Задача 1 - </span>
               <span className={styles.taskName}>{currentTask.name}</span>

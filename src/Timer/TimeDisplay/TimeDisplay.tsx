@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { getPadTime } from "../../Hooks/js/getPadTime";
 import { useActions } from "../../Hooks/useActions";
+import { useTypedSelector } from "../../Hooks/useTypedSelector";
 import { EIcons, Icons } from "../../Icons/Icons";
 import styles from "./TimeDisplay.module.scss";
 
 interface ITimeDisplayProps {
-  time: number;
   isRunning?: boolean;
   isWork?: boolean;
-  currentTask: any;
-  pomodoroId: string;
 }
 
 export function TimeDisplay(props: ITimeDisplayProps) {
-  const { time, isRunning, isWork, currentTask, pomodoroId } = props;
+  const { isRunning, isWork } = props;
   const { spendTime } = useActions();
-
+  const { tasks } = useTypedSelector((state) => state);
   const [count, setCount] = useState(5);
 
+  const currentTask = tasks?.[0];
   const minutes = getPadTime(Math.floor(count / 60));
   const seconds = getPadTime(Math.floor(count - Number(minutes) * 60));
 
@@ -26,8 +25,8 @@ export function TimeDisplay(props: ITimeDisplayProps) {
     if (count === 0) {
       spendTime({
         id: currentTask.id,
-        pomodoroId: pomodoroId,
-        timeSpend: count,
+        pomodoroId: currentTask.pomodoro[0].id,
+        timeSpend: currentTask.pomodoro[0].time,
       });
     }
   };
